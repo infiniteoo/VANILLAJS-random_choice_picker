@@ -33,12 +33,16 @@ function randomSelect() {
   const times = 30;
   const interval = setInterval(() => {
     const randomTag = pickRandomTag();
+    highlightTag(randomTag);
+    setTimeout(() => {
+      unHighlightTag(randomTag);
+    }, 100);
   }, 100);
 }
 
 function pickRandomTag() {
-  const tags = document.querySelectorAll("tag");
-  return tags[Math.floor(random() * tags.length)];
+  const tags = document.querySelectorAll(".tag");
+  return tags[Math.floor(Math.random() * tags.length)];
 }
 
 function highlightTag(tag) {
